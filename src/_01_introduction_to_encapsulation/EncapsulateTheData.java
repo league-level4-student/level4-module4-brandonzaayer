@@ -44,7 +44,10 @@ public class EncapsulateTheData {
 		}
 	}
 	public Object getObj() {
-		//if(memberObj)
+		if(memberObj instanceof String) {
+			memberObj = new Object();
+		}
+			return memberObj;
 	}
 	//2. Create a new JUnit Test case and write tests to verify that 
 	//   the member variables' getters and setters are working
@@ -55,6 +58,8 @@ public class EncapsulateTheData {
 	private Object memberObj;  //must not be a String.  If it is a String, set it equal to a new Object();
 	
 	public static void main(String[] args) {
-		
+		//public void testitemsReceived() {
+			
+		}
 	}
 }
