@@ -19,36 +19,54 @@ package _01_introduction_to_encapsulation;
 public class EncapsulateTheData {
 	//1. Encapsulate the member variables.
 	//   Add restrictions to the setters according to the comment.
-	public int getItems() {
-	      if(itemsReceived<0) {
-	    	  return 0;
-	      }
-	      else {
-	    	  return itemsReceived;
-	      }
+	public int getItemsReceived() {
+	      return itemsReceived;
 	   }
-	public float getDegrees() {
+	public void setItemsReceived(int itemsReceived){
+		if(itemsReceived > 0) {
+			this.itemsReceived = itemsReceived;
+		}
+		else {
+			this.itemsReceived = 0;
+		}
+	}
+	public float getDegreesTurned() {
+		return degreesTurned;
+	}
+	public void setDegreesTurned(float degreesTurned) {
 		if(0.0 <= degreesTurned && degreesTurned <= 360.0) {
-			return degreesTurned;
+			this.degreesTurned = degreesTurned;
+		}
+		else if (degreesTurned>360){
+			this.degreesTurned = 360;
 		}
 		else {
-			return 0;
+			this.degreesTurned = 0;
 		}
 	}
-	public String getSpaces() {
+	public String getNomenclature() {
+		return nomenclature;
+	}
+	public void setNomenclature(String nomenclature) {
 		if(nomenclature.length() > 0) {
-			return nomenclature;
+			this.nomenclature = nomenclature;
 		}
 		else {
-			return " ";
+			this.nomenclature = " ";
 		}
 	}
-	public Object getObj() {
-		if(memberObj instanceof String) {
-			memberObj = new Object();
-		}
-			return memberObj;
+	public Object getMemberObj() {
+		return memberObj;
 	}
+	public void setMemberObj(Object memberObj) {
+        if(memberObj instanceof String) {
+            this.memberObj = new Object();
+        }
+        else {
+            this.memberObj = memberObj;
+        }
+    }
+
 	//2. Create a new JUnit Test case and write tests to verify that 
 	//   the member variables' getters and setters are working
 	
@@ -56,10 +74,7 @@ public class EncapsulateTheData {
 	private float degreesTurned; //must be locked between 0.0 and 360.0 inclusive.
 	private String nomenclature = " "; //must not be set to a blank string. Blank Strings get set to a space
 	private Object memberObj;  //must not be a String.  If it is a String, set it equal to a new Object();
-	
 	public static void main(String[] args) {
-		//public void testitemsReceived() {
-			
-		}
+		
 	}
 }
