@@ -12,7 +12,47 @@ public class BluePolymorph extends Polymorph{
 	@Override
 	public void draw(Graphics g) {
 		g.setColor(Color.blue);
-		g.fillRect(x, y, 50, 50);
+		g.fillRect(getX(), getY(), 50, 50);
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
 	}
 	
+}
+class RedMorph extends Polymorph {
+	RedMorph(int x, int y) {
+		super(x, y);
+	}
+
+	@Override
+	public void draw(Graphics g) {
+		g.setColor(Color.red);
+		g.fillRect(getX(), getY(), 50, 50);
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+}
+class MovingMorph extends Polymorph {
+	MovingMorph(int x, int y) {
+		super(x, y);
+	}
+
+	@Override
+	public void draw(Graphics g) {
+		g.setColor(Color.green);
+		g.fillRect(getX(), getY(), 50, 50);
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
 }
