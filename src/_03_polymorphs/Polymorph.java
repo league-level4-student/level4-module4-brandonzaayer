@@ -29,4 +29,5 @@ public abstract class Polymorph {
     
     public abstract void draw(Graphics g);
 	public abstract void follow(int x, int y);
+	public abstract void clicked(int x, int y);
 }

@@ -7,14 +7,16 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class PolymorphWindow extends JPanel implements ActionListener, MouseMotionListener {
+public class PolymorphWindow extends JPanel implements ActionListener, MouseMotionListener, MouseListener {
 	public static final int WIDTH = 900;
 	public static final int HEIGHT = 600;
 
@@ -35,12 +37,14 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
 		window.pack();
 		window.setVisible(true);
 		window.addMouseMotionListener(this);
+		window.addMouseListener(this);
 
 		Morphs = new ArrayList<>();
 		Morphs.add(new BluePolymorph(50, 50));
 		Morphs.add(new RedMorph(100, 50));
 		Morphs.add(new MovingMorph(150, 50));
-		Morphs.add(new MouseMorph(200, 50));
+		Morphs.add(new MouseMorph(150, 50));
+		Morphs.add(new MessageMorph(200, 50));
 
 		timer = new Timer(1000 / 30, this);
 		timer.start();
@@ -72,6 +76,12 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
@@ -81,5 +91,33 @@ public class PolymorphWindow extends JPanel implements ActionListener, MouseMoti
 		for (int i = 0; i < Morphs.size(); i++) {
 			Morphs.get(i).follow(mouseX, mouseY);
 		}
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		int clickedX = e.getX();
+		int clickedY = e.getY();
+		for (int i = 0; i < Morphs.size(); i++) {
+			Morphs.get(i).clicked(clickedX, clickedY);
+		}
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
