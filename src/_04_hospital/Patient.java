@@ -1,15 +1,15 @@
 package _04_hospital;
 
-public class Patient extends Hospital{
-
+public class Patient {
+boolean feeling = false;
 	public Object feelsCaredFor() {
 		// TODO Auto-generated method stub
-		return null;
+		return feeling;
 	}
 
 	public void checkPulse() {
 		// TODO Auto-generated method stub
-		
+		feeling = true;
 	}
 
 }
